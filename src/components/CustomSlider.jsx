@@ -17,22 +17,12 @@ const CustomSlider = ({ children }) => {
         setCurrentIndex((prevIndex) => (prevIndex - 1 + children.length) % children.length);
     };
 
-    const handleSliderScroll = (e) => {
-        const currentScroll = e.target.scrollLeft;
-        
-        const requiredScroll = e.target.scrollWidth / children.length;
-        
-        if(Math.abs(lastScroll.current - currentScroll) >= requiredScroll){
-            // if (lastScroll.current < currentScroll) nextSlide();
-            // else prevSlide();
-            lastScroll.current = currentScroll;
-        }
-    };
-
     useEffect(() => {
         if (sliderRef.current) {
+            const realWidth = sliderRef.current.clientWidth;
+            const scrollWidth = sliderRef.current.scrollWidth;
             sliderRef.current.scrollTo({
-                left: currentIndex * sliderRef.current.clientWidth,
+                left: (currentIndex * scrollWidth / children.length) - (realWidth / 2) + (scrollWidth / (2 * children.length)),
                 behavior: 'smooth'
             });
         }
@@ -43,18 +33,17 @@ const CustomSlider = ({ children }) => {
             <button onClick={prevSlide} className={"text-xl md:text-3xl " + (darkTheme ? "text-white" : "text-gray-900")}><GrPrevious /></button>
             <div
                 className="overflow-auto custom-scrollbar "
-                onScroll={handleSliderScroll}
                 ref={sliderRef}
             >
                 <div
                     className="slider-transform flex gap-6 transition-transform duration-500 mx-6 my-8"
-                    // style={{
-                    //     '--translate-x-sm': `-${currentIndex * 100}% - ${currentIndex * 12}px`,
-                    //     '--translate-x-md': `-${currentIndex * 100 / children.length}%`
-                    // }}
                 >
                     {React.Children.map(children, (child, index) => (
-                        <div key={index} className={currentIndex == index ? "scale-110" : "scale-90"}>
+                        <div
+                            key={index}
+                            onClick={() => setCurrentIndex(index)}
+                            className={currentIndex == index ? "scale-110" : "scale-90"}
+                        >
                             {child}
                         </div>
                     ))}
