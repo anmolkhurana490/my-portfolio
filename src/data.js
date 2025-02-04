@@ -43,19 +43,8 @@ export const projects = [
 
 export const experiences = [
   {
-    company: "CodSoft",
-    role: "AI Intern",
-    duration: "July 2024 - August 2024",
-    skills: ["Chatbot Development", "Image Captioning", "NLP", "Python"],
-    description:
-      "Developed a rule-based chatbot and an AI-driven image captioning system, enhancing my AI/ML expertise.",
-    links: {
-      certificate: "#",
-      github: "#",
-    },
-  },
-  {
     company: "Open Source Contribution",
+    logo: "/experiences-gallery/github-logo.png",
     role: "Contributor",
     duration: "Ongoing",
     skills: ["React", "TailwindCSS", "GitHub", "Open-Source"],
@@ -64,6 +53,19 @@ export const experiences = [
     links: {
       certificate: null,
       github: "https://github.com/anmolkhurana490",
+    },
+  },
+  {
+    company: "CodSoft",
+    image: "/experiences-gallery/codsoft-logo.png",
+    role: "Virtual Intern",
+    duration: "July 2024 - August 2024",
+    skills: ["Chatbot Development", "Image Captioning", "NLP", "Python"],
+    description:
+      "Developed a rule-based chatbot and an AI-driven image captioning system, enhancing my AI/ML expertise.",
+    links: {
+      certificate: "https://drive.google.com/file/d/1UufPR0nitJQSgw9GNdX-DZ0HNuTL9z-W/view",
+      github: "https://github.com/anmolkhurana490/Codsoft-AI-Internship.git",
     },
   },
 ];

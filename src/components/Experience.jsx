@@ -3,26 +3,6 @@ import { AppContext } from "../AppContext";
 
 import { experiences } from "../data";
 
-const ExperienceSection = () => {
-  return (
-    <section className="py-12 px-6 bg-gray-900 text-white">
-      <div className="max-w-5xl mx-auto text-center">
-        <h2 className="text-3xl font-bold">Experience & Contributions</h2>
-        <p className="text-gray-400 mt-2">
-          Hands-on experience in virtual internships & open-source projects.
-        </p>
-      </div>
-
-      <div className="mt-10 grid md:grid-cols-2 gap-6 place-items-center">
-        {experiences.map((exp) => (
-          <ExperienceCard key={exp.id} experience={exp} />
-        ))}
-      </div>
-    </section>
-  );
-};
-
-
 const Experience = () => {
   const { darkTheme } = useContext(AppContext)
 
@@ -34,42 +14,71 @@ const Experience = () => {
 
   return (
     <section className={"min-h-[90vh] flex flex-col items-center justify-center px-6 py-12 " + textColor}>
-      <h2 className="text-4xl font-bold">Experience</h2>
-      <div className="mt-6 space-y-4 max-w-3xl">
-        <div className="bg-gray-200 text-gray-900 p-4 rounded-lg">
-          <h3 className="text-xl font-semibold">AI Intern - Codsoft</h3>
-          <p className="text-gray-700">Working on AI-based projects including chatbot development and image captioning.</p>
-          <span className="text-sm text-gray-500">July 2024 - Present</span>
-        </div>
-        {/* Add more experience items here */}
+      <div className="max-w-5xl mx-auto text-center">
+        <h2 className="text-4xl font-bold">Experience & Contributions</h2>
+
+        <p className="${} mt-2">
+          Hands-on experience in virtual internships & open-source projects.
+        </p>
+      </div>
+
+      <div className="mt-10 flex flex-wrap justify-center gap-6">
+        {experiences.map((exp, index) => (
+          <ExperienceCard key={index} experience={exp} darkTheme={darkTheme} textColor={textColor} />
+        ))}
       </div>
     </section>
   );
 };
 
 
-const ExperienceCard = ({ experience }) => {
+const ExperienceCard = ({ experience, darkTheme, textColor }) => {
   return (
-    <div className="bg-gray-800 text-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow w-full max-w-lg">
-      <h3 className="text-xl font-semibold">{experience.company}</h3>
-      <p className="text-sm text-gray-400">{experience.role}</p>
-      <p className="text-sm text-gray-400">{experience.duration}</p>
-      <div className="flex flex-wrap gap-2 my-3">
+    <div className={`p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow w-full max-w-md ${darkTheme ? "bg-gray-300/20 " : "bg-gray-800/20 "} ${textColor}`}>
+
+      {experience.image && (
+        <img
+          src={experience.image}
+          alt={experience.company}
+          className="max-w-full max-h-64 object-contain mb-4 rounded-md"
+        />
+      )}
+
+      <div className='flex flex-wrap justify-between'>
+        <div>
+          <h2 className="text-base md:text-2xl font-bold ">{experience.company}</h2>
+
+          <p className={`text-base mt-2 ${darkTheme ? "text-gray-300" : "text-gray-800"}`}>{experience.role}</p>
+          <p className={`text-base ${darkTheme ? "text-gray-300" : "text-gray-800"}`}> {experience.duration}</p>
+        </div>
+
+        {experience.logo && (
+          <img
+            src={experience.logo}
+            alt={experience.company}
+            className="max-w-16 max-h-16 object-contain mb-4 rounded-md"
+          />
+        )}
+      </div>
+
+      <div className="flex flex-wrap gap-2 my-3 mt-4">
         {experience.skills.map((skill, index) => (
           <span
             key={index}
-            className="bg-indigo-500/80 text-white text-xs px-3 py-1 rounded-full"
+            className="bg-indigo-500/80 text-white text-sm px-3 py-1 rounded-full"
           >
             {skill}
           </span>
         ))}
       </div>
-      <p className="text-gray-300 text-sm">{experience.description}</p>
+
+      <p className="text-base mt-4">{experience.description}</p>
+
       <div className="flex gap-3 mt-4">
         {experience.links.certificate && (
           <a
             href={experience.links.certificate}
-            className="text-indigo-400 text-sm hover:underline"
+            className="px-4 py-2 text-white text-base rounded-md bg-gray-700 hover:bg-gray-600"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -79,7 +88,7 @@ const ExperienceCard = ({ experience }) => {
         {experience.links.github && (
           <a
             href={experience.links.github}
-            className="text-indigo-400 text-sm hover:underline"
+            className="px-4 py-2 text-white text-base rounded-md bg-indigo-500 hover:bg-indigo-400"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -87,7 +96,7 @@ const ExperienceCard = ({ experience }) => {
           </a>
         )}
       </div>
-    </div>
+    </div >
   );
 };
 
