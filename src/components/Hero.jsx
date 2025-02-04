@@ -50,7 +50,7 @@ const HeroSection = () => {
     }, [text, isDeleting, roleIndex, loopNum]);
 
     return (
-        <section className="h-screen flex flex-col items-center justify-center text-center text-white px-6">
+        <section className="min-h-[90vh] flex flex-col items-center justify-center text-center text-white px-6">
             <h1 className={"text-4xl sm:text-5xl font-bold " + headingColor}>
                 Hi, I'm <span className={myNameColor}>Anmol Khurana</span>
             </h1>

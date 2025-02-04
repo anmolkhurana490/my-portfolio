@@ -32,7 +32,9 @@ function App() {
     <div className={'app-container h-screen custom-scrollbar overflow-y-auto backdrop-blur-sm '
       + (darkTheme ? 'bg-gray-800/80' : 'bg-indigo-400/60')}>
       <Navbar />
+
       <AppRoutes />
+      
       <Footer />
     </div>
   )

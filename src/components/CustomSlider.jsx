@@ -30,7 +30,7 @@ const CustomSlider = ({ children }) => {
 
     return (
         <div className="flex md:gap-4 relative w-full">
-            <button onClick={prevSlide} className={"text-xl md:text-3xl " + (darkTheme ? "text-white" : "text-gray-900")}><GrPrevious /></button>
+            <button onClick={prevSlide} className={"text-2xl md:text-3xl " + (darkTheme ? "text-white" : "text-gray-900")}><GrPrevious className='animate-btn rounded-lg p-1 ' /></button>
             <div
                 className="overflow-auto custom-scrollbar "
                 ref={sliderRef}
@@ -42,14 +42,14 @@ const CustomSlider = ({ children }) => {
                         <div
                             key={index}
                             onClick={() => setCurrentIndex(index)}
-                            className={currentIndex == index ? "scale-110" : "scale-90"}
+                            className={currentIndex == index ? "scale-110" : "scale-95"}
                         >
                             {child}
                         </div>
                     ))}
                 </div>
             </div>
-            <button onClick={nextSlide} className={"text-xl md:text-3xl " + (darkTheme ? "text-white" : "text-gray-900")}><GrNext /></button>
+            <button onClick={nextSlide} className={"text-2xl md:text-3xl " + (darkTheme ? "text-white" : "text-gray-900")}><GrNext className='animate-btn rounded-lg p-1 ' /></button>
         </div>
     );
 };

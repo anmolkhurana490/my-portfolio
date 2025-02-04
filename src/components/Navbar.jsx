@@ -42,7 +42,7 @@ const Navbar = () => {
                         <Link to="contact" onClick={()=>setIsOpen(false)} className="text-white hover:text-gray-400">Contact</Link>
                     </li>
                     <li>
-                        <a href="/my-resume.pdf" download="anmolkhurana490.pdf" className="resume-btn text-white text-lg font-semibold hover:text-gray-400 mx-16  rounded-lg px-2 md:px-4 py-2">
+                        <a href="/my-resume.pdf" download="anmolkhurana490.pdf" className="animate-btn text-white text-lg font-semibold hover:text-gray-400 mx-16  rounded-lg px-2 md:px-4 py-2">
                             Resume <FaDownload className='inline-block text-xl text-white' />
                         </a>
                     </li>
