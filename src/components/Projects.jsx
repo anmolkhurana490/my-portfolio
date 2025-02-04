@@ -15,7 +15,7 @@ const Projects = () => {
   }, [darkTheme])
 
   return (
-    <section className="min-h-screen py-4 md:py-8 space-y-4">
+    <section className="min-h-[90vh] py-4 md:py-8 space-y-4">
       <h1 className={"text-3xl md:text-4xl text-center font-bold " + textColor}>Projects</h1>
 
       <div className='flex gap-4 justify-around mx-2 md:mx-8'>

@@ -40,3 +40,30 @@ export const projects = [
     demo: "#",
   },
 ];
+
+export const experiences = [
+  {
+    company: "CodSoft",
+    role: "AI Intern",
+    duration: "July 2024 - August 2024",
+    skills: ["Chatbot Development", "Image Captioning", "NLP", "Python"],
+    description:
+      "Developed a rule-based chatbot and an AI-driven image captioning system, enhancing my AI/ML expertise.",
+    links: {
+      certificate: "#",
+      github: "#",
+    },
+  },
+  {
+    company: "Open Source Contribution",
+    role: "Contributor",
+    duration: "Ongoing",
+    skills: ["React", "TailwindCSS", "GitHub", "Open-Source"],
+    description:
+      "Contributed to open-source projects, improving UI/UX components and optimizing web applications.",
+    links: {
+      certificate: null,
+      github: "https://github.com/anmolkhurana490",
+    },
+  },
+];

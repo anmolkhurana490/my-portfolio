@@ -13,7 +13,7 @@ const Contact = () => {
     }, [darkTheme]);
 
     return (
-        <section className={"min-h-screen flex flex-col items-center justify-center px-6 py-12 " + textColor}>
+        <section className={"min-h-[90vh] flex flex-col items-center justify-center px-6 py-12 " + textColor}>
             <div className="rounded-lg shadow-lg p-8 max-w-2xl w-full">
                 <h2 className="text-4xl font-bold mb-4 text-center">Contact Me</h2>
                 <p className="text-lg text-center max-w-xl mt-4 mb-8">
